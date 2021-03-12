@@ -13,10 +13,10 @@
   hosts: webservers_centos
   tasks:
 
-  - name: Install epl-release repo
-    yum:
-      name: epl-release
-      state: present  
+#  - name: Install epl-release repo
+#    yum:
+#      name: epl-release
+#      state: present  
 
   - name: Install nginx
     yum:
