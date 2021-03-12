@@ -31,9 +31,9 @@
     command:
       cmd: systemctl enable nginx
   
-  - name: allow http service
-    commnad:
-      cmd: firewall-cmd --permanent --add-service=http
+#  - name: allow http service
+#    commnad:
+#      cmd: firewall-cmd --permanent --add-service=http
       
   - name: reload firewalld
     command:
