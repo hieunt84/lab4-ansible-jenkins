@@ -31,7 +31,7 @@
     command:
       cmd: systemctl enable nginx
   
-  - name: permit traffic in default zone for http service
+  - name: allow http service
     commnad:
       cmd: firewall-cmd --permanent --add-service=http
       
