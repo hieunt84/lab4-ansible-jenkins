@@ -32,10 +32,8 @@
       cmd: systemctl enable nginx
   
   - name: permit traffic in default zone for http service
-    ansible.posix.firewalld:
-      service: http
-      permanent: yes
-      state: enabled
+    commnad:
+      cmd: firewall-cmd --permanent --add-service=http
       
   - name: reload firewalld
     command:
