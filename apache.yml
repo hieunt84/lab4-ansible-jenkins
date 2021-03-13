@@ -8,11 +8,11 @@
       name: httpd
       state: present  
 
-   - name: Start Apache Server
-     ansible.builtin.service:
-       name: httpd
-       state: started
-       enabled: yes
+  - name: Start Apache Server
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
 
 #  - name: start
 #    command:
