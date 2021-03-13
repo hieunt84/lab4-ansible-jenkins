@@ -39,6 +39,11 @@
     command:
       cmd: firewall-cmd --reload
 
+  - name: copy souce code
+    command:
+      cmd: copy ./index.html /var/www/html/
+
+
   - name: check status
     command:
       cmd: systemctl status httpd
