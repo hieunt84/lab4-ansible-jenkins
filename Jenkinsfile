@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('SCM checkout') {
+        stage('Build') {
             steps {
-                git 'https://github.com/hieunt84/myapp-ansible.git'
+                echo "This is Build stage
             }
         }
         
