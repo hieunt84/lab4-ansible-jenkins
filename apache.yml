@@ -1,34 +1,33 @@
----
-#Play init Setup
-#- name: init setup
-#  hosts: webservers_centos
-#  tasks:
-#  - name: Upgrade all packages
-#    yum:
-#      name: '*'
-#      state: latest
+Skip to content
+Search or jump to…
 
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@hieunt84 
+hieunt84
+/
+myapp-ansible
 #Play Intall httpd
 - name: Install httpd
   hosts: webservers_centos
-  become: True
   tasks:
+
   - name: Install httpd
     yum:
-      name: "httpd"
-      state: "present"  
-
-  - name: Start Apache Server
-    ansible.builtin.service:
       name: httpd
-      state: started
-      enable: yes
+      state: present  
 
-  - name: Deploy static website
-    copy:
-      src: index.html
-      dest: /var/www/html
+  - name: start
+    command:
+      cmd: systemctl start httpd
 
+  - name: enable httpd
+    command:
+      cmd: systemctl enable httpd
+  
   - name: allow http service
     command:
       cmd: firewall-cmd --permanent --add-service=http
@@ -36,6 +35,11 @@
   - name: reload firewalld
     command:
       cmd: firewall-cmd --reload
+
+  - name: copy souce code
+    command:
+      cmd: copy index.html /var/www/html/
+
 
   - name: check status
     command:
@@ -45,4 +49,3 @@
   - name: show result on screen 
     debug: var=result.stdout_lines
 
-...
