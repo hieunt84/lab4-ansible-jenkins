@@ -11,7 +11,7 @@
 #Play Intall httpd
 - name: Install httpd
   hosts: webservers_centos
-  becom: True
+  become: True
   tasks:
   - name: Install httpd
     yum:
