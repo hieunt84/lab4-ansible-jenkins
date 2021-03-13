@@ -1,3 +1,4 @@
+---
 - name: Install httpd
   hosts: webservers_centos
   tasks:
@@ -24,9 +25,9 @@
       cmd: firewall-cmd --reload
 
   - name: copy souce code
-    command:
-      cmd: copy index.html /var/www/html/
-
+    copy:
+      src: index.html 
+      dest: /var/www/html/
 
   - name: check status
     command:
@@ -35,4 +36,5 @@
       
   - name: show result on screen 
     debug: var=result.stdout_lines
+...
 
