@@ -9,18 +9,12 @@
       state: present  
 
   - name: Start Apache Server
-    ansible.builtin.service:
+    service:
+    #ansible.builtin.service:
       name: httpd
       state: started
       enabled: yes
 
-#  - name: start
-#    command:
-#      cmd: systemctl start httpd
-#  - name: enable httpd
-#    command:
-#      cmd: systemctl enable httpd
-  
   - name: allow http service
     command:
       cmd: firewall-cmd --permanent --add-service=http
