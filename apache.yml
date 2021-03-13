@@ -8,13 +8,18 @@
       name: httpd
       state: present  
 
-  - name: start
-    command:
-      cmd: systemctl start httpd
+   - name: Start Apache Server
+     ansible.builtin.service:
+       name: httpd
+       state: started
+       enabled: yes
 
-  - name: enable httpd
-    command:
-      cmd: systemctl enable httpd
+#  - name: start
+#    command:
+#      cmd: systemctl start httpd
+#  - name: enable httpd
+#    command:
+#      cmd: systemctl enable httpd
   
   - name: allow http service
     command:
