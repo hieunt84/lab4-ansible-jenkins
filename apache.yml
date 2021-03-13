@@ -11,26 +11,24 @@
 #Play Intall httpd
 - name: Install httpd
   hosts: webservers_centos
+  becom: True
   tasks:
-
-#  - name: Install epl-release repo
-#    yum:
-#      name: epl-release
-#      state: present  
-
   - name: Install httpd
     yum:
+      name: "httpd"
+      state: "present"  
+
+  - name: Start Apache Server
+    service:
       name: httpd
-      state: present  
+      state: started
+      enable: True
 
-  - name: start
-    command:
-      cmd: systemctl start httpd
+  - name: Deploy static website
+    copy:
+      src: index.html
+      dest: /var/www/html
 
-  - name: enable httpd
-    command:
-      cmd: systemctl enable httpd
-  
   - name: allow http service
     command:
       cmd: firewall-cmd --permanent --add-service=http
@@ -39,11 +37,6 @@
     command:
       cmd: firewall-cmd --reload
 
-  - name: copy souce code
-    command:
-      cmd: copy ./index.html /var/www/html/
-
-
   - name: check status
     command:
       cmd: systemctl status httpd
@@ -51,3 +44,5 @@
       
   - name: show result on screen 
     debug: var=result.stdout_lines
+
+...
