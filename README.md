@@ -7,5 +7,4 @@
 # ref https://cuongquach.com/cai-dat-apache-tren-centos-web-server-apache.html
 # ref fix error https://stackoverflow.com/questions/56784830/#how-to-fix-the-ansible-playbook-error-unsupported-parameters-for-systemd-modu
 
-#test git
 
