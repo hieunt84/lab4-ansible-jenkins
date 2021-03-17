@@ -1,4 +1,4 @@
-# myapp-ansible
+# This is lab4-ansible-jenkins, url github https://github.com/hieunt84/lab4-ansible-jenkins
 # This is demo integrating ansible on jenkins
 # ref https://github.com/javahometech/myapp-ansible/blob/master/apache.yml
 # ref https://www.youtube.com/watch?v=PRpEbFZi7nI
